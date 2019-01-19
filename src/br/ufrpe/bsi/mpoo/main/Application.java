@@ -12,19 +12,26 @@ public class Application {
 		
 		JSONArray apiReceitas = new JSONArray(receitasApi);
 		
+		//pega receita uma a uma
 		for (int index = 0 ; index < apiReceitas.length() ; index++) {
 			JSONObject receitaNoArray = apiReceitas.getJSONObject(index);
 			
+			//mostra o nome da receita
 			System.out.println("Como fazer " + receitaNoArray.getString("nome"));
 			System.out.println();
 			
 			JSONArray secao = receitaNoArray.getJSONArray("secao");
 			
+			//pega cada item no array secao
 			for (int i = 0 ; i<secao.length(); i++) {
 				JSONObject itemSecao = secao.getJSONObject(i);
+				
+				//printa o título do item atual da secao (ingredientes, modo de preparo, outras informações)
 				System.out.println(itemSecao.get("nome") + ":");
 				
+				//printa o conteúdo desse item atual
 				JSONArray conteudo = itemSecao.getJSONArray("conteudo");
+				//printa todos os itens do conteúdo do item atual
 				for (int j = 0 ; j < conteudo.length() ; j++) {
 					System.out.println(conteudo.get(j));
 				}
