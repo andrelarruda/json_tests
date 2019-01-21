@@ -95,7 +95,7 @@ public class Application2 {
 				System.out.println("total de receitas contabilizadas: " + (frango.size()+ chocolate.size() + bolo.size() + mousse.size() + torta.size() + carne.size()));
 				
 				System.out.println("Qtd de receitas no json: " + apiReceitas.length());
-
+				
 	}
 
 }
