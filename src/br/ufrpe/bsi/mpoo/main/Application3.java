@@ -1,5 +1,8 @@
 package br.ufrpe.bsi.mpoo.main;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import org.json.JSONArray;
@@ -135,50 +138,71 @@ public class Application3 {
 			
 		}// primeiro for (cada receita no json)
 		
-		int cont = 0;
 		
-		System.out.println("++++++++++++++++++++++FRANGO++++++++++++++++++++++++\n");
-		for (Receita receita : frango) {
-			System.out.println(receita);
-			cont++;
-			
-		}
-		System.out.println("\n++++++++++++++++++++++CARNE++++++++++++++++++++++++\n");
-		for (Receita receita : carne) {
-			System.out.println(receita);
-			cont++;
-		}
-		System.out.println("\n++++++++++++++++++++++TORTAS++++++++++++++++++++++++\n");
-		for (Receita receita : torta) {
-			System.out.println(receita);
-			cont++;
-		}
-		System.out.println("\n++++++++++++++++++++++CHOCOLATE++++++++++++++++++++++++\n");
-		for (Receita receita : chocolate) {
-			System.out.println(receita);
-			cont++;
-		}
-		System.out.println("\n++++++++++++++++++++++MOUSSES++++++++++++++++++++++++\n");
-		for (Receita receita : mousse) {
-			System.out.println(receita);
-			cont++;
-		}
-		System.out.println("\n++++++++++++++++++++++BOLOS++++++++++++++++++++++++\n");
-		for (Receita receita : bolo) {
-			System.out.println(receita);
-			cont++;
-		}
+		//Printa as receitas de acordo com o tipo
+//		System.out.println("++++++++++++++++++++++FRANGO++++++++++++++++++++++++\n");
+//		for (Receita receita : frango) {
+//			System.out.println(receita);			
+//		}
+//		System.out.println("\n++++++++++++++++++++++CARNE++++++++++++++++++++++++\n");
+//		for (Receita receita : carne) {
+//			System.out.println(receita);
+//		}
+//		System.out.println("\n++++++++++++++++++++++TORTAS++++++++++++++++++++++++\n");
+//		for (Receita receita : torta) {
+//			System.out.println(receita);
+//		}
+//		System.out.println("\n++++++++++++++++++++++CHOCOLATE++++++++++++++++++++++++\n");
+//		for (Receita receita : chocolate) {
+//			System.out.println(receita);
+//		}
+//		System.out.println("\n++++++++++++++++++++++MOUSSES++++++++++++++++++++++++\n");
+//		for (Receita receita : mousse) {
+//			System.out.println(receita);
+//		}
+//		System.out.println("\n++++++++++++++++++++++BOLOS++++++++++++++++++++++++\n");
+//		for (Receita receita : bolo) {
+//			System.out.println(receita);
+//		}
 		
-		System.out.println("Qtd de receitas de frango: " + frango.size());
-		System.out.println("Qtd de receitas de carne: " + carne.size());
-		System.out.println("Qtd de receitas de torta: " + torta.size());
-		System.out.println("Qtd de receitas de chocolate: " + chocolate.size());
-		System.out.println("Qtd de receitas de mousse: " + mousse.size());
-		System.out.println("Qtd de receitas de bolo: " + bolo.size());
 		
-		System.out.println("Total: " + cont);
+		
+		
+		//Escreve as receitas num arquivo txt.
+		escreveReceita("Receitas de frango - 14.txt", frango);
+		escreveReceita("Receitas de carne - 9.txt", carne);
+		escreveReceita("Receitas de tortas - 12.txt", torta);
+		escreveReceita("Receitas de chocolates - 16.txt", chocolate);
+		escreveReceita("Receitas de mousses - 4.txt", mousse);
+		escreveReceita("Receitas de bolos - 11.txt", bolo);
 		
 		
 	}// main
+	
+	
+	public static void escreveReceita(String nomeArquivo, ArrayList<Receita> receitas) {
+		
+		
+		try {
+			//assumindo a codificação padrão
+			FileWriter escritorArquivo = new FileWriter(nomeArquivo);
+			
+			//always wrap FileWrite in BufferedWriter
+			BufferedWriter bw = new BufferedWriter(escritorArquivo);
+			
+			for (Receita receita : receitas) {
+				bw.write(receita.toString());
+			}
+			
+			bw.close();
+			
+			
+		}
+		catch(IOException e) {
+			System.out.println("Erro ao tentar escrever no arquivo " + nomeArquivo);
+		}
+		
+		
+	}
 
 }

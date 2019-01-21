@@ -30,7 +30,7 @@ public class Receita {
 		if (this.getOutrasInformacoes() != null) {
 			sb.append("Outras informações:\n" + this.getOutrasInformacoes());
 		}
-		sb.append("-------------------------------------");
+		sb.append("-------------------------------------\n");
 		return sb.toString();
 	}
 	
