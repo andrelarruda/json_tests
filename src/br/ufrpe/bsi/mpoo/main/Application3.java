@@ -140,7 +140,12 @@ public class Application3 {
 			System.out.println(receita);
 		}
 		
-		
+		System.out.println("Qtd de receitas de frango: " + frango.size());
+		System.out.println("Qtd de receitas de carne: " + carne.size());
+		System.out.println("Qtd de receitas de torta: " + torta.size());
+		System.out.println("Qtd de receitas de chocolate: " + chocolate.size());
+		System.out.println("Qtd de receitas de mousse: " + mousse.size());
+		System.out.println("Qtd de receitas de bolo: " + bolo.size());
 		
 		
 	}// main
