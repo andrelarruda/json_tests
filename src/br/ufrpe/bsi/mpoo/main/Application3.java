@@ -135,9 +135,38 @@ public class Application3 {
 			
 		}// primeiro for (cada receita no json)
 		
+		int cont = 0;
 		
+		System.out.println("++++++++++++++++++++++FRANGO++++++++++++++++++++++++\n");
+		for (Receita receita : frango) {
+			System.out.println(receita);
+			cont++;
+			
+		}
+		System.out.println("\n++++++++++++++++++++++CARNE++++++++++++++++++++++++\n");
+		for (Receita receita : carne) {
+			System.out.println(receita);
+			cont++;
+		}
+		System.out.println("\n++++++++++++++++++++++TORTAS++++++++++++++++++++++++\n");
+		for (Receita receita : torta) {
+			System.out.println(receita);
+			cont++;
+		}
+		System.out.println("\n++++++++++++++++++++++CHOCOLATE++++++++++++++++++++++++\n");
+		for (Receita receita : chocolate) {
+			System.out.println(receita);
+			cont++;
+		}
+		System.out.println("\n++++++++++++++++++++++MOUSSES++++++++++++++++++++++++\n");
 		for (Receita receita : mousse) {
 			System.out.println(receita);
+			cont++;
+		}
+		System.out.println("\n++++++++++++++++++++++BOLOS++++++++++++++++++++++++\n");
+		for (Receita receita : bolo) {
+			System.out.println(receita);
+			cont++;
 		}
 		
 		System.out.println("Qtd de receitas de frango: " + frango.size());
@@ -146,6 +175,8 @@ public class Application3 {
 		System.out.println("Qtd de receitas de chocolate: " + chocolate.size());
 		System.out.println("Qtd de receitas de mousse: " + mousse.size());
 		System.out.println("Qtd de receitas de bolo: " + bolo.size());
+		
+		System.out.println("Total: " + cont);
 		
 		
 	}// main
