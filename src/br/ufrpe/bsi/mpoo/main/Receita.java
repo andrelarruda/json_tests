@@ -8,6 +8,10 @@ public class Receita {
 	private String modoDePreparo;
 	private String outrasInformacoes;
 	
+	public Receita() {
+		
+	}
+	
 	public Receita(int tipo, String nome, String ingredientes, String modoPreparo, String outrasInfo) {
 		this.tipo = tipo;
 		this.nome = nome;
@@ -15,6 +19,19 @@ public class Receita {
 		this.modoDePreparo = modoPreparo;
 		this.outrasInformacoes = outrasInfo;
 
+	}
+	
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("************************************\n");
+		sb.append(this.getNome() + "\n\n");
+		sb.append("Ingredientes:\n" + this.getIngredientes());
+		sb.append("Modo de preparo:\n" + this.getModoDePreparo());
+		if (this.getOutrasInformacoes() != null) {
+			sb.append("Outras informações:\n" + this.getOutrasInformacoes());
+		}
+		sb.append("-------------------------------------");
+		return sb.toString();
 	}
 	
 	
